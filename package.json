@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "de.idvl.cordova.devicevolume",
+    "cordova_name": "Device Volume",
+    "description": "Allow setting and getting the devices volume on android and ios.",
+    "license": "MIT",
+    "platforms": [
+        "ios",
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

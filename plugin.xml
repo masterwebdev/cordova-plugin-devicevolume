@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="de.idvl.cordova.devicevolume"
+    version="1.0.0">
+
+    <name>Device Volume</name>
+    <description>Allow setting and getting the devices volume on android and ios.</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/devicevolume.js" name="devicevolume">
+        <clobbers target="DeviceVolume" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DeviceVolume">
+                <param name="ios-package" value="DeviceVolume" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/DeviceVolume.h" />
+        <source-file src="src/ios/DeviceVolume.m" />
+
+        <framework src="MediaPlayer.framework" />
+
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DeviceVolume">
+                <param name="android-package" value="de.idvl.cordova.devicevolume.DeviceVolume" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        </config-file>
+
+        <source-file src="src/android/de/idvl/cordova/devicevolume/DeviceVolume.java" target-dir="src/de/idvl/cordova/devicevolume" />
+    </platform>
+
+</plugin>
